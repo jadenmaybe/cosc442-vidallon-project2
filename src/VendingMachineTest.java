@@ -118,6 +118,14 @@ public class VendingMachineTest {
     }
 
     @Test
+    // Test to see if removeItem correctly throws an exception at a null slot
+    void testRemoveItem_Null() {
+        // assert
+        assertThrows(
+                VendingMachineException.class, () -> myMachine.removeItem("D"));
+    }
+
+    @Test
     void testReturnChange() {
         // act
         myMachine.insertMoney(10.0);
