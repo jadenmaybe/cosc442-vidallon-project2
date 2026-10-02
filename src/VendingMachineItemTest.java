@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class VendingMachineItemTest {
     VendingMachineItem testVendingMachineItem;
@@ -19,10 +21,18 @@ public class VendingMachineItemTest {
     }
 
     @Test
+    // Testing VendingMachineItem constructor with invalid case (price < 0)
     void testVendingMachineItem_InvalidPrice() {
+        // act, assert
         assertThrows(VendingMachineException.class, () -> {
             new VendingMachineItem("test", -1.0);
         });
+    }
+
+    @Test
+    void TestVendingMachineItem_ZeroPrice() {
+        // act, assert
+        assertEquals(0.0, new VendingMachineItem("test", 0.0).getPrice(), 0.001);
     }
 
     @Test
