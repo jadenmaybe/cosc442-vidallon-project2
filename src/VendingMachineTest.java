@@ -75,7 +75,7 @@ public class VendingMachineTest {
     // Test to see if makePurchase functions correctly with a valid case
     void testMakePurchase_Valid() {
         // act
-        myMachine.insertMoney(10.0);
+        myMachine.insertMoney(5.0);
         // assert
         // makePurchase returns true if purchase is valid (appropriate amount of money
         // needed to make the purchase)
